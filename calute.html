@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="calcute.css">
+</head>
+
+<body>
+    <div class="calc">
+
+    </div>
+    <div id="calculator">
+
+        <input type="text" id="result" readonly />
+        <button class="div" onclick="clearResult()">C</button>
+        <button class="div" onclick="number('+')">+</button>
+        <button class="div" onclick="number('-')">-</button>
+        <button class="div" onclick="number('*')">X</button>
+        <br/>
+        <button class="div" onclick="number('/')">/</button>
+        <button onclick="number('9')">9</button>
+        <button onclick="number('8')">8</button>
+        <button onclick="number('7')">7</button>
+        <br />
+        <button onclick="number('6')">6</button>
+        <button onclick="number('5')">5</button>
+        <button onclick="number('4')">4</button>
+        <button onclick="number('3')">3</button>
+        <br>
+        <button onclick="number('2')">2</button>
+        <button onclick="number('1')">1</button>
+        <button onclick="number('0')">0</button>
+        <button class="div" onclick="calculate()">=</button>
+    </div>
+
+    <script>
+        let result = document.getElementById("result");
+        let calculator = "";
+
+        function number(value) {
+            calculator += value;
+            result.value = calculator;
+        }
+
+        function calculate() {
+            try {
+                calculator = eval(calculator);
+                result.value = calculator;
+            } catch (error) {
+                result.value = "Invaild Error ";
+            }
+        }
+
+        function clearResult() {
+            calculator = "";
+            result.value = "";
+        }
+    </script>
+</body>
+
+</html>
